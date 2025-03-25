@@ -1,4 +1,4 @@
-name: Deploy Personal Site
+name: Deploy Personal Site to Lightsail
 on:
   push:
     branches:

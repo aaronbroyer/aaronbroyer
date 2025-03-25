@@ -143,6 +143,22 @@ hr {
   margin-top: 20px;
 }
 
+.socials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  padding: 0 10px;
+  border-bottom: none;
+}
+
+.social-icon img {
+  width: 23px;
+  height: 23px;
+}
+
 /* Layout */
 
 body {
@@ -194,10 +210,10 @@ body {
   direction: ltr;
 }
 
-.masthead .menu ul ul {
-  list-style: none;
+.masthead .menu ul {
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 30px;
 }
 
 .masthead .menu li li::before {

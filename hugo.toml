@@ -1,4 +1,22 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://aaronbroyer.com'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Aaron Royer'
 theme = 'hugo-ivy'
+
+
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
+        name = "Projects"
+        url = "/projects/"
+        weight = 2
+
+
+[params]
+    description = 'Learning / Code / Curiosity'
+    footer = "&copy; {Year}"
+

@@ -17,6 +17,6 @@ theme = 'hugo-ivy'
 
 
 [params]
-    description = 'Learning / Code / Curiosity'
+    description = 'EdTech / Code / Curiosity'
     footer = "&copy; {Year}"
 

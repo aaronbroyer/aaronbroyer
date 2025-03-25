@@ -4,7 +4,7 @@
 FROM klakegg/hugo:ext-alpine AS builder
 WORKDIR /src
 COPY . .
-RUN hugo --minify --config hugo.toml
+RUN hugo --minify
 
 # 2. Use Nginx to serve the built static site
 FROM nginx:alpine

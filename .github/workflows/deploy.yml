@@ -25,8 +25,8 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
         run: |
-          docker build -t $ECR_REPOSITORY .
-          docker push $ECR_REPOSITORY
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY
 
       - name: SSH into Lightsail and deploy
         uses: appleboy/ssh-action@v1.0.3
@@ -35,7 +35,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
-            aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY }}
-            docker pull ${{ secrets.ECR_REPOSITORY }}
+            aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
+            docker pull ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}
             docker rm -f aaronbroyer || true
-            docker run -d -p 8080:80 --name aaronbroyer ${{ secrets.ECR_REPOSITORY }}
+            docker run -d -p 8080:80 --name aaronbroyer ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}
+            docker logout
+            docker system prune -f

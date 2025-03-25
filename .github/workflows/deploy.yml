@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          submodules: true
+
 
       - name: Log in to Amazon ECR
         id: login-ecr

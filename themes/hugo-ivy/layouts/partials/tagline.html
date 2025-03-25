@@ -1,0 +1,10 @@
+<h1><a href="{{ relURL "/" }}">{{ .Site.Title }}</a></h1>
+
+{{ with .Site.Params.Description }}<p class="tagline">{{ . }}</p>{{ end }}
+
+<div class="socials-container">
+   <a class="social-icon" target="_blank" href="//www.github.com/aaronbroyer?tab=repositories"><img class="" src="{{ (default "github.svg" )  | relURL }}" alt="mysite" width="26"></a>
+   <a class="social-icon" target="_blank" href="//www.linkedin.com/in/aaronbroyer/"><img class="" src="{{ (default "linkedin.png" )  | relURL }}" alt="mysite" width="26"></a>
+   <a class="social-icon" target="_blank" href="//www.instagram.com/aaronbroyer"><img class="" src="{{ (default "instagram.svg" )  | relURL }}" alt="mysite" width="26"></a>
+   <a class="social-icon" href="mailto:aaronbroyer@gmail.com"><img class="" src="{{ (default "mail.svg" )  | relURL }}" alt="mysite" width="26"></a>
+</div>

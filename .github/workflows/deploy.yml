@@ -1,41 +1,37 @@
-name: Deploy Personal Site to Lightsail
-
+name: Deploy Personal Site
 on:
   push:
     branches:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Debug - list project files
-        run: ls -la
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build Docker image
-        run: docker build -t aaronbroyer .
+      - name: Build, tag, and push Docker image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+        run: |
+          docker build -t $ECR_REPOSITORY .
+          docker push $ECR_REPOSITORY
 
-      - name: Copy files to Lightsail
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.LIGHTSAIL_HOST }}
-          username: ubuntu
-          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: "Dockerfile"
-          target: "/home/ubuntu/aaronbroyer"
-
-      - name: Deploy via SSH
+      - name: SSH into Lightsail and deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ubuntu
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
-            cd ~/aaronbroyer
-            docker build -t aaronbroyer .
-            docker rm -f aaronbroyer || true
-            docker run -d -p 80:80 --name aaronbroyer aaronbroyer
+            aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY }}
+            docker pull ${{ secrets.ECR_REPOSITORY }}
+            docker rm -f hugo-site || true
+            docker run -d -p 80:80 --name hugo-site ${{ secrets.ECR_REPOSITORY }}

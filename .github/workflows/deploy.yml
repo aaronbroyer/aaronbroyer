@@ -1,4 +1,4 @@
-name: Deploy Personal Siteto Lightsail
+name: Deploy Personal Site to Lightsail
 
 on:
   push:

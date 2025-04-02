@@ -14,7 +14,6 @@ RUN hugo --minify --verbose --log
 FROM nginx:alpine
 # Verify copy from builder stage
 COPY --from=builder /src/public /usr/share/nginx/html
-RUN ls -la /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

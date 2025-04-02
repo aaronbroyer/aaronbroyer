@@ -2,18 +2,13 @@
 
 {{ .Content }}
 
-<div class="card-container">
+<ul>
   {{ range (where (cond .IsHome .Site.RegularPages .Pages) "Section" "!=" "") }}
-  <div class="card">
-    <div class="card-date">{{ .Date.Format "2006/01/02" }}</div>
-    <a href="{{ .RelPermalink }}" class="card-link">
-      <h3 class="card-title">{{ .Title }}</h3>
-    </a>
-    {{ if .Summary }}
-    <div class="card-summary">{{ .Summary | truncate 120 }}</div>
-    {{ end }}
-  </div>
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
   {{ end }}
-</div>
+</ul>
 
 {{ partial "footer.html" . }}

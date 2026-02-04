@@ -7,7 +7,6 @@ tags:
   - Markdown
 ---
 
-## LanguageFeed  
 🔗 **Live demo:** https://www.languagefeed.com/  
 💻 **GitHub:**  
 - Frontend: https://github.com/aaronbroyer/language-feed-frontend  

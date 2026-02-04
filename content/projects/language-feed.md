@@ -41,7 +41,8 @@ Language is presented as it appears in real communicative contexts, allowing lea
 - React  
 - Redux (with async middleware)  
 - Material-UI  
-- Webpack  
+- Webpack
+- Responsive PWA  
 
 **Backend**
 - Node.js + Express  

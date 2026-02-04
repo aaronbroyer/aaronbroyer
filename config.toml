@@ -14,12 +14,7 @@ theme = 'hugo-ivy'
         name = "Projects"
         url = "/projects/"
         weight = 2
-
-    [[menu.main]]
-        name = "Curios"
-        url = "/curios/"
-        weight = 3
-
+        
 
 [params]
     description = 'Learning / Code / Curiosity'

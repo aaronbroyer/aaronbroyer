@@ -2,6 +2,13 @@
 title: Language Feed
 date: '2020-07-23'
 summary: 'Full-stack language-learning web app that applies SLA best practices (contextualized, comprehensible input and microlearning) to a modern feed experience.'
+stack:
+  - React
+  - Redux
+  - Node/Express
+  - PostgreSQL
+  - Redis
+  - Python
 categories:
   - Apps
 tags:

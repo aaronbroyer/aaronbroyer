@@ -4,15 +4,35 @@
 
 <div class="card-container">
   {{ range (where (cond .IsHome .Site.RegularPages .Pages) "Section" "!=" "") }}
-  <div class="card">
-    <div class="card-date">{{ .Date.Format "2006/01/02" }}</div>
-    <a href="{{ .RelPermalink }}" class="card-link">
-      <h3 class="card-title">{{ .Title }}</h3>
-    </a>
-    {{ if .Summary }}
-    <div class="card-summary">{{ .Summary | truncate 120 }}</div>
-    {{ end }}
-  </div>
+    <article class="project-card">
+      <header class="project-card__header">
+        <p class="project-card__meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </p>
+
+        <h3 class="project-card__title">
+          <a href="{{ .RelPermalink }}" class="card-link">{{ .Title }}</a>
+        </h3>
+
+        {{ with .Params.summary }}
+          <p class="project-card__subtitle card-summary">{{ . }}</p>
+        {{ else if .Summary }}
+          <p class="project-card__subtitle card-summary">{{ .Summary | plainify }}</p>
+        {{ end }}
+      </header>
+
+      {{ $stack := .Params.stack | default .Params.tags }}
+      {{ with $stack }}
+        <ul class="project-card__tags" aria-label="Tech stack">
+          {{ range . }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </article>
+  {{ end }}
+</div>
+
   {{ end }}
 </div>
 

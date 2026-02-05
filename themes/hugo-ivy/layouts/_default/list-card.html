@@ -16,9 +16,12 @@
 
         {{ with .Params.summary }}
           <p class="project-card__subtitle card-summary">{{ . }}</p>
-        {{ else if .Summary }}
-          <p class="project-card__subtitle card-summary">{{ .Summary | plainify }}</p>
+        {{ else }}
+          {{ with .Summary }}
+            <p class="project-card__subtitle card-summary">{{ . | plainify }}</p>
+          {{ end }}
         {{ end }}
+
       </header>
 
       {{ $stack := .Params.stack | default .Params.tags }}
@@ -33,7 +36,5 @@
   {{ end }}
 </div>
 
-  {{ end }}
-</div>
 
 {{ partial "footer.html" . }}

@@ -1,0 +1,12 @@
+{{ $title := .Get "title" | default "Tech" }}
+{{ $tone := .Get "tone" | default "neutral" }}
+
+<article class="tech-card" data-tone="{{ $tone }}">
+  <header class="tech-card__header">
+    <h3 class="tech-card__title">{{ $title }}</h3>
+  </header>
+  <div class="tech-card__body">
+    {{ .Inner | markdownify }}
+  </div>
+</article>
+

@@ -220,6 +220,72 @@ sup a {
   font-variant-numeric: tabular-nums;
 }
 
+/* Tech Stack Cards */
+
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin:18px 0 10px;
+}
+
+.tech-card{
+  --accent:#111;
+  position:relative;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:16px;
+  padding:14px 14px 12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.tech-card::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),rgba(0,0,0,0));
+}
+
+.tech-card[data-tone="frontend"]{ --accent:#0ea5e9; }
+.tech-card[data-tone="backend"]{ --accent:#22c55e; }
+.tech-card[data-tone="core"]{ --accent:#f97316; }
+
+.tech-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 34px rgba(0,0,0,.10);
+}
+
+.tech-card__header{ margin:0 0 10px; }
+.tech-card__title{
+  margin:0;
+  font-size:1rem;
+  line-height:1.2;
+  letter-spacing:-.01em;
+}
+
+.tech-card__body ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tech-card__body li{
+  margin:0;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.04);
+  border:1px solid rgba(0,0,0,.08);
+  color:rgba(0,0,0,.78);
+  font-size:.85rem;
+  line-height:1.15;
+}
+
 /* Miscellanea */
 
 hr {

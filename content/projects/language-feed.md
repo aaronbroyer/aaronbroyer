@@ -1,6 +1,6 @@
 ---
 title: Language Feed
-date: '2020-07-23'
+date: '07-23-2020'
 summary: 'Full-stack language-learning web app that applies SLA best practices (contextualized, comprehensible input and microlearning) to a modern feed experience.'
 demo_url: https://www.languagefeed.com/
 stack:
@@ -15,11 +15,6 @@ categories:
 tags:
   - Markdown
 ---
-
-💻 **GitHub:**  
-- Frontend: https://github.com/aaronbroyer/language-feed-frontend  
-- Backend: https://github.com/aaronbroyer/language-feed-backend  
-- Core Logic: https://github.com/aaronbroyer/language-feed-logic  
 
 
 **LanguageFeed** is a full-stack language-learning web application I built it to explore the implementation of **Second Language Acquisition (SLA) principles and best practices**. Rather than traditional lessons, the app delivers a continuous feed of short, contextualized language content designed for frequent, low-friction exposure.
@@ -62,3 +57,9 @@ Language is presented as it appears in real communicative contexts, allowing lea
 - Python-based logic layer  
 - Designed to be UI- and backend-agnostic  
 - Enables experimentation with learning logic without coupling it to the web stack
+
+
+💻 **GitHub:**  
+- Frontend: https://github.com/aaronbroyer/language-feed-frontend  
+- Backend: https://github.com/aaronbroyer/language-feed-backend  
+- Core Logic: https://github.com/aaronbroyer/language-feed-logic  

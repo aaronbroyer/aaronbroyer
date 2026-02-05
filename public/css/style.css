@@ -135,6 +135,10 @@ sup a {
   color:rgba(0,0,0,.55);
 }
 
+.project-card__header{
+  margin-bottom: 6px;
+}
+
 .project-card__title{
   margin:0;
   font-size:1.25rem;

@@ -110,14 +110,15 @@ sup a {
 
 /* Projedt Cards */
 
-.card-link {
-  text-decoration: none;
-}
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
+}
+
+.card-link {
+  text-decoration: none;
 }
 
 .project-card{
@@ -132,6 +133,10 @@ sup a {
   margin:0 0 6px;
   font-size:.9rem;
   color:rgba(0,0,0,.55);
+}
+
+.project-card__header{
+  margin-bottom: 6px;
 }
 
 .project-card__title{

@@ -4,7 +4,7 @@ type: _default
 layout: single
 ---
 
-Hi, I'm Aaron, a learning technologist and instructional designer. I build the tools, workflows, and learning systems behind great instruction so they’re easier to run, easier to scale, and easier to support long-term.
+Hi, I’m Aaron. I build and operate learning systems and tools that help great instruction work at scale.
 
-I’m focused on practical edtech: reducing friction for instructors, using evidence to guide iteration, and automating the repeatable parts without losing what makes learning feel human. 
+My work sits at the intersection of pedagogy, technology, and operations: translating evidence-based learning principles into tools, workflows, and platforms that reduce friction for instructors, support meaningful iteration, and automate the repeatable parts without losing what makes learning human.
 

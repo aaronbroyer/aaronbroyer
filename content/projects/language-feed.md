@@ -1,6 +1,6 @@
 ---
 title: Language Feed
-date: '07-23-2020'
+date: '2020-07-23'
 summary: 'Full-stack language-learning web app that applies SLA best practices (contextualized, comprehensible input and microlearning) to a modern feed experience.'
 demo_url: https://www.languagefeed.com/
 stack:

@@ -43,7 +43,7 @@ Language is presented as it appears in real communicative contexts, allowing lea
 {{< tech-grid >}}
 {{< tech-card title="Frontend" tone="frontend" >}}
 - React
-- Redux (with async middleware)
+- Redux
 - Material-UI
 - Webpack
 - Responsive PWA
@@ -52,19 +52,17 @@ Language is presented as it appears in real communicative contexts, allowing lea
 {{< tech-card title="Backend" tone="backend" >}}
 - Node.js + Express
 - PostgreSQL
-- Redis-backed sessions
-- Passport.js authentication
+- Redis
+- Passport.js 
 {{< /tech-card >}}
 
 {{< tech-card title="Core Logic" tone="core" >}}
-- Python-based logic layer
-- Designed to be UI- and backend-agnostic
-- Enables experimentation with learning logic without coupling it to the web stack
+- Python
 {{< /tech-card >}}
-{{< /tech-grid >}}
+{{< /tech-grid >}}  
 
-<br />
-<br />
+<br>
+<br>
 💻 **GitHub:**  
 - Frontend: https://github.com/aaronbroyer/language-feed-frontend  
 - Backend: https://github.com/aaronbroyer/language-feed-backend  

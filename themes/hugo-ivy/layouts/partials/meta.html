@@ -3,22 +3,51 @@
 {{ with .Description}}<h3 class="subtitle">{{ . }}</h3>{{ end }}
 {{ $author := false }}
 {{ if .IsPage }}
-<h3>{{ with or (or .Params.author (index (or .Site.Params.author dict) .Section)) "" }}
-{{ $author = . }}
-{{ . }}
-{{ end }}
-{{ $date := "" }}
-{{ if .Params.date }}
-{{ $date = .Date.Format "2006-01-02" }}
-{{ else }}
-{{ with .Lastmod }}
-{{ $date = .Format "2006-01-02" }}
-{{ end }}
-{{ end }}
-{{ with $date }}
-{{ if $author }} / {{ end }}
-{{ . }}
-{{ end }}</h3>
+  {{ if eq .Section "projects" }}
+    {{ $date := false }}
+    {{ if .Params.date }}
+      {{ $date = .Date }}
+    {{ else }}
+      {{ with .Lastmod }}{{ $date = . }}{{ end }}
+    {{ end }}
+
+    <div class="project-hero">
+      <div class="project-hero__bar">
+        {{ with .Params.demo_url }}
+          {{ $url := . }}
+          {{ $label := $url }}
+          {{ $label = replaceRE "^https?://(www\\.)?" "" $label }}
+          {{ $label = replaceRE "/$" "" $label }}
+          <a class="project-hero__cta" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+            {{ $label }} <span class="project-hero__arrow" aria-hidden="true">↗</span>
+          </a>
+        {{ end }}
+
+        {{ with $date }}
+          <span class="project-hero__date">
+            <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "01-02-2006" }}</time>
+          </span>
+        {{ end }}
+      </div>
+    </div>
+  {{ else }}
+    <h3>{{ with or (or .Params.author (index (or .Site.Params.author dict) .Section)) "" }}
+    {{ $author = . }}
+    {{ . }}
+    {{ end }}
+    {{ $date := "" }}
+    {{ if .Params.date }}
+    {{ $date = .Date.Format "01-02-2006" }}
+    {{ else }}
+    {{ with .Lastmod }}
+    {{ $date = .Format "01-02-2006" }}
+    {{ end }}
+    {{ end }}
+    {{ with $date }}
+    {{ if $author }} / {{ end }}
+    {{ . }}
+    {{ end }}</h3>
+  {{ end }}
 {{ end }}
 <hr>
 {{ end }}

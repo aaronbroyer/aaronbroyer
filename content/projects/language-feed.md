@@ -2,6 +2,7 @@
 title: Language Feed
 date: '2020-07-23'
 summary: 'Full-stack language-learning web app that applies SLA best practices (contextualized, comprehensible input and microlearning) to a modern feed experience.'
+demo_url: https://www.languagefeed.com/
 stack:
   - React
   - Redux
@@ -14,8 +15,6 @@ categories:
 tags:
   - Markdown
 ---
-
-🔗 https://www.languagefeed.com/  
 
 💻 **GitHub:**  
 - Frontend: https://github.com/aaronbroyer/language-feed-frontend  
@@ -63,4 +62,3 @@ Language is presented as it appears in real communicative contexts, allowing lea
 - Python-based logic layer  
 - Designed to be UI- and backend-agnostic  
 - Enables experimentation with learning logic without coupling it to the web stack
-
